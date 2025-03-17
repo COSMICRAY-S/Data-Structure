@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "ExpressionEvaluationInPrePostOrder",
+      "request": "launch",
+      "mainClass": "ExpressionEvaluationInPrePostOrder",
+      "projectName": "data structure_1aadf336"
+    },
+    {
+      "type": "java",
+      "name": "PostfixEvaluation",
+      "request": "launch",
+      "mainClass": "PostfixEvaluation",
+      "projectName": "data structure_1aadf336"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/Shahalom/Documents/c++/ajam sir",
+      "program": "c:/Users/Shahalom/Documents/c++/ajam sir/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
