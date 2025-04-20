@@ -72,7 +72,7 @@ int main() {
     bt.postorder(0);
     cout << endl;
 
-    bt.display();
+    //bt.display();
 
     return 0;
 }
