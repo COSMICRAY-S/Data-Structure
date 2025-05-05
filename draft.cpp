@@ -1,88 +1,92 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<bits/stdc++.h>
+using namespace std;
+// void display(int arr[],int n){
+//     cout<<"array: ";
+//     for(int i=0;i<n;i++)
+//     cout<<arr[i]<<" ";
+//     cout<<endl;
+// }
 
-// Define the structure for a node
-struct Node {
-    int data;
-    struct Node* next;
-};
+int main(){
+    int arr[100];
+    int n,pos,val,choice;
+    // cout<<"Enter number of element: ";
+    // cin>>n;
+    // srand(time(0));
+    // for(int i=0;i<n;i++)
+    // {
+    //     arr[i]= rand()% 100;
+    //     cout<<arr[i]<<" ";
+    // }
+    n=0;
+    while(1){
+        if(scanf("%d",&arr[n])==1)
+        n++;
+        else break;
+        char ch =getchar();
+        if(ch=='\n')
+        break;
+    }
+    
 
-// Function to insert a node at the beginning
-void insertAtBeginning(struct Node** head, int data) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = data;
-    newNode->next = *head;
-    *head = newNode;
-}
-
-// Function to insert a node at the end
-void insertAtEnd(struct Node** head, int data) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = data;
-    newNode->next = NULL;
-
-    if (*head == NULL) {
-        *head = newNode;
-        return;
+    cout<<endl;
+    for(int i=1;i<n;i++)
+    {
+        int temp =arr[i];
+        int j=i-1;
+        while(j>=0 && arr[j]>temp){
+            arr[j+1]=arr[j];
+            j--;
+        }
+        arr[j+1]=temp;
     }
 
-    struct Node* temp = *head;
-    while (temp->next != NULL) {
-        temp = temp->next;
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
     }
-    temp->next = newNode;
-}
+    // for(int i=0;i<n;i++){
+    //     cin>>arr[i];
+    // }
+    
+    // do{
+    //     system("CLS");
+    //     display(arr,n);
 
-// Function to delete a node by value
-void deleteNode(struct Node** head, int key) {
-    struct Node *temp = *head, *prev = NULL;
+    //     cout<<"1. insert\n2. delete\n4. exit\nEnter your choice";
+    //     cin>>choice;
+    //     switch (choice)
+    //     {
+    //     case 1:
+    //         cout<<"Enter inserrt position :";
+    //         cin>>pos;if(pos>n)cout<<"invalid pos";
+    //         else{
+    //             cout<<"Enter value";
+    //             cin>>val;
+    //             for(int i=n;i>pos;i--){
+    //                  arr[i]=arr[i-1];
+    //             }
+    //             arr[pos]=val; n++;
+    //         }
+    //         break;
 
-    // If the head node itself holds the key
-    if (temp != NULL && temp->data == key) {
-        *head = temp->next;
-        free(temp);
-        return;
-    }
-
-    // Search for the key to be deleted
-    while (temp != NULL && temp->data != key) {
-        prev = temp;
-        temp = temp->next;
-    }
-
-    // If the key was not found
-    if (temp == NULL) return;
-
-    // Unlink the node and free memory
-    prev->next = temp->next;
-    free(temp);
-}
-
-// Function to display the linked list
-void displayList(struct Node* head) {
-    struct Node* temp = head;
-    while (temp != NULL) {
-        printf("%d -> ", temp->data);
-        temp = temp->next;
-    }
-    printf("NULL\n");
-}
-
-// Main function
-int main() {
-    struct Node* head = NULL;
-
-    insertAtEnd(&head, 10);
-    insertAtEnd(&head, 20);
-    insertAtBeginning(&head, 5);
-    insertAtEnd(&head, 30);
-
-    printf("Linked List: ");
-    displayList(head);
-
-    printf("Deleting 20...\n");
-    deleteNode(&head, 20);
-    displayList(head);
-
-    return 0;
+    //     case 2:
+    //         cout<<"Enter delete position :";
+    //         cin>>pos;if(pos>n)cout<<"invalid pos";
+    //         else{
+    //             for(int i=pos;i<n-1;i++){
+    //                  arr[i]=arr[i+1];
+    //             }
+    //             n--;
+    //         }
+    //         break;
+    //         case 3:
+    //         display(arr,n);
+    //     case 4:
+    //         return 0;
+    //     default:
+    //         cout<<"try again";
+    //         break;
+    //     }
+    // }while(choice!=4);
 }

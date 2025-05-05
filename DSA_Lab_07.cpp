@@ -1,8 +1,7 @@
-#include <stdio.h>
-
+#include<iostream>
 #define MAX_SIZE 1000
 
-void bubbleSort(int arr[], int size) {
+void selectionSort(int arr[], int size) {
     for (int i = 0; i < size - 1; ++i) {
         int min =i;
         for(int j=i+1;j<size;j++){
@@ -41,7 +40,7 @@ int main() {
         }
     }
 
-    bubbleSort(arr, size);
+    selectionSort(arr, size);
     displayArray(arr, size);
 
     return 0;

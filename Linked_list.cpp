@@ -24,6 +24,33 @@ void append(Node*& head, int value) {
     }
 }
 
+void insertAtBegin(Node*&head , int value){
+    Node* newNode = new Node();
+    newNode->data = value;
+    newNode->next = head;
+    head = newNode;
+}
+
+// Function to insert a node after a specific value
+void insertAfter(Node*& head, int target, int value) {
+    Node* temp = head;
+    while (temp != nullptr && temp->data != target) {
+        temp = temp->next;
+    }
+
+    if (temp == nullptr) {
+        cout << "Target value not found in the list!" << endl;
+        return;
+    }
+
+    Node* newNode = new Node();
+    newNode->data = value;
+    newNode->next = temp->next;
+    temp->next = newNode;
+
+    cout << "Inserted " << value << " after " << target << endl;
+}
+
 // Function to display the linked list
 void display(Node* head) {
     if (head == nullptr) {
@@ -66,26 +93,6 @@ void deleteNode(Node*& head, int value) {
         delete toDelete;
         cout << "Deleted node with value " << value << endl;
     }
-}
-
-// Function to insert a node after a specific value
-void insertAfter(Node*& head, int target, int value) {
-    Node* temp = head;
-    while (temp != nullptr && temp->data != target) {
-        temp = temp->next;
-    }
-
-    if (temp == nullptr) {
-        cout << "Target value not found in the list!" << endl;
-        return;
-    }
-
-    Node* newNode = new Node();
-    newNode->data = value;
-    newNode->next = temp->next;
-    temp->next = newNode;
-
-    cout << "Inserted " << value << " after " << target << endl;
 }
 
 // Function to swap two nodes in the list
@@ -150,7 +157,7 @@ int main() {
     int choice, value, target, val1, val2;
 
     do {
-        cout << "\n1. Append\n2. Display\n3. Delete Node\n4. Insert After\n5. Swap Nodes\n6. Exit\n";
+        cout << "\n1. Append\n2. Display\n3. Delete Node\n4. Insert After\n5. Swap Nodes\n6. Exit\n6.begin\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -189,6 +196,13 @@ int main() {
 
             case 6:
                 deleteList(head);
+                break;
+
+            case 7:
+                
+                cout << "Enter value to insert: ";
+                cin >> value;            
+                insertAtBegin(head, value);
                 break;
 
             default:
